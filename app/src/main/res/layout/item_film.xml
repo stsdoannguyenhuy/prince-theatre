@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_film_row_layout"
+    android:layout_marginBottom="5dp"
+    android:background="#390191">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/item_film_guideline_half_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <ImageView
+        android:id="@+id/item_film_img_poster"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1.5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/item_film_guideline_half_screen"
+        />
+    <TextView
+        android:id="@+id/item_film_row_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/item_film_guideline_half_screen"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="ID" />
+    <TextView
+        android:id="@+id/item_film_row_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="@id/item_film_guideline_half_screen"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textColor="#ffffff"
+        app:layout_constraintTop_toBottomOf="@id/item_film_row_id"
+        android:text="TITLE" />
+    <TextView
+        android:id="@+id/item_film_row_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        app:layout_constraintLeft_toLeftOf="@id/item_film_guideline_half_screen"
+        app:layout_constraintTop_toBottomOf="@id/item_film_row_title"
+        android:text="TYPE" />
+    <TextView
+        android:id="@+id/item_film_row_actors"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        app:layout_constraintLeft_toLeftOf="@id/item_film_guideline_half_screen"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_film_row_type"
+        android:background="#ff0000"
+        android:text="ACTORS" />
+    <TextView
+        android:id="@+id/item_film_row_pricing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/item_film_guideline_half_screen"
+        app:layout_constraintTop_toBottomOf="@id/item_film_row_actors"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="25sp"
+        android:layout_marginTop="5sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:text="PRICING" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Prince Threatre</string>
+    <string name="film_world">Film World</string>
+    <string name="cinema_world">Cinema World</string>
+    <string name="compare_film">Compare film</string>
+    <string name="film_is_not_available">The film is not available</string>
 </resources>

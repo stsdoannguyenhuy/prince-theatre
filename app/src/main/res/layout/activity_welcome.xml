@@ -4,7 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.WelcomeActivity"
+    tools:context=".ui.activity.WelcomeActivity"
     android:background="@drawable/welcome">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/welcome_guideline_top"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/app_name"
+        android:textSize="50sp"
+        android:textColor="#ffffff"
+        android:textColorHighlight="@color/design_default_color_secondary"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/welcome_guideline_left"
+        app:layout_constraintGuide_percent="0.4"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/welcome_guideline_right"
+        app:layout_constraintGuide_percent="0.7"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/welcome_guideline_top"
+        app:layout_constraintGuide_percent="0.3"
+        />
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/welcome_guideline_left"
+        app:layout_constraintRight_toRightOf="@id/welcome_guideline_right"
+        app:layout_constraintTop_toTopOf="@id/welcome_guideline_top"
+        android:id="@+id/welcome_btn_film_world"
+        android:text="@string/film_world"/>
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/welcome_guideline_left"
+        app:layout_constraintRight_toRightOf="@id/welcome_guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/welcome_btn_film_world"
+        android:id="@+id/welcome_btn_cinema_world"
+        android:text="@string/cinema_world"/>
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/welcome_guideline_left"
+        app:layout_constraintRight_toRightOf="@id/welcome_guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/welcome_btn_cinema_world"
+        android:id="@+id/welcome_btn_comparison"
+        android:background="#00ff00"
+        android:text="@string/compare_film"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

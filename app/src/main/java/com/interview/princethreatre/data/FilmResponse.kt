@@ -1,12 +1,20 @@
 package com.interview.princethreatre.data
 
-data class FilmResponse(val Provider: String, val Movies: List<FilmDetail>)
+import com.google.gson.annotations.SerializedName
+
+data class FilmResponse(
+    @SerializedName("Provider") val provider: String, @SerializedName("Movies") val movies: MutableList<FilmDetail>)
 
 data class FilmDetail(
-    val ID: String,
-    val Title: String,
-    val Type: String,
-    val Poster: String,
-    val Actors: String,
-    val Price: Double
+    @SerializedName("ID") val id: String,
+    @SerializedName("Title") val title: String,
+    @SerializedName("Type") val type: String,
+    @SerializedName("Poster") val poster: String,
+    @SerializedName("Actors") val actors: String,
+    @SerializedName("Price") val price: Double
 )
+
+enum class FilmProvider(val apiName: String, val showName: String){
+    FILM_WORLD("filmworld","Film World"),
+    CINEMA_WORLD("cinemaworld","Cinema World"),
+}

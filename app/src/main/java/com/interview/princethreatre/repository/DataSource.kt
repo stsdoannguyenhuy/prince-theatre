@@ -1,6 +1,5 @@
 package com.interview.princethreatre.repository
 
-import com.google.gson.Gson
 import com.interview.princethreatre.util.LogUtil
 import com.moczul.ok2curl.CurlInterceptor
 import com.moczul.ok2curl.logger.Logger
@@ -13,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class DataSource() {
-    public val filmRepository: FilmRepository
+    val filmRepository: FilmRepository
     private val retrofit:Retrofit
 
     init {
@@ -62,7 +61,7 @@ class DataSource() {
 }
 
 class NetWorkErrorInterceptor : Interceptor {
-    var count = 3
+    private var count = 3
     override fun intercept(it: Interceptor.Chain): Response {
         val request = it.request()
         var response = it.proceed(request)
