@@ -1,7 +1,7 @@
 package com.interview.princethreatre.di
 
-import com.interview.princethreatre.ui.service.FilmService
-import com.interview.princethreatre.ui.service.FilmServiceImpl
+import com.interview.princethreatre.service.FilmService
+import com.interview.princethreatre.service.FilmServiceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

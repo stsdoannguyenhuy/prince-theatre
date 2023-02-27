@@ -31,7 +31,7 @@ class DataSource() {
         private const val KEY = "Yr2636E6BTD3UCdleMkf7UEdqKnd9n361TQL9An7"
     }
 
-    fun provideClient(): OkHttpClient {
+    private fun provideClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(DEFAULT_TIMEOUT,TimeUnit.SECONDS)
             .writeTimeout(DEFAULT_TIMEOUT,TimeUnit.SECONDS)

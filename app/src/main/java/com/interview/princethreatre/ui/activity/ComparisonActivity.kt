@@ -8,7 +8,7 @@ import com.interview.princethreatre.R
 import com.interview.princethreatre.base.BaseActivity
 import com.interview.princethreatre.data.FilmDetail
 import com.interview.princethreatre.ui.recyler.ListFilmAdapter
-import com.interview.princethreatre.ui.service.FilmService
+import com.interview.princethreatre.service.FilmService
 import com.interview.princethreatre.util.LogUtil
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
