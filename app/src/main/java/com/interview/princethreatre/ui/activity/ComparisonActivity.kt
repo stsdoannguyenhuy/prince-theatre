@@ -2,6 +2,8 @@ package com.interview.princethreatre.ui.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.RecyclerView
 import com.interview.princethreatre.R
@@ -89,16 +91,32 @@ class ComparisonSearchViewListener(val activity: ComparisonActivity) :
             return false
         }
 
-        activity.filmWorldAdapter.changeDataSet(originalFilmWorldList.filter {
-            it.title.lowercase().contains(
-                searchText.lowercase()
-            )
-        }.toMutableList())
-        activity.cinemaWorldAdapter.changeDataSet(originalCinemaWorldList.filter {
-            it.title.lowercase().contains(
-                searchText.lowercase()
-            )
-        }.toMutableList())
+        activity.filmWorldAdapter.apply {
+            val filterList = originalFilmWorldList.filter {
+                it.title.lowercase().contains(
+                    searchText.lowercase()
+                )
+            }.toMutableList()
+            if(filterList.isEmpty()){
+                activity.findViewById<TextView>(R.id.comparison_txt_film_world_nothing_to_show).visibility = View.VISIBLE
+            } else{
+                activity.findViewById<TextView>(R.id.comparison_txt_film_world_nothing_to_show).visibility = View.GONE
+            }
+            changeDataSet(filterList)
+        }
+        activity.cinemaWorldAdapter.apply {
+            val filterList = originalCinemaWorldList.filter {
+                it.title.lowercase().contains(
+                    searchText.lowercase()
+                )
+            }.toMutableList()
+            if(filterList.isEmpty()){
+                activity.findViewById<TextView>(R.id.comparison_txt_cinema_world_nothing_to_show).visibility = View.VISIBLE
+            } else{
+                activity.findViewById<TextView>(R.id.comparison_txt_cinema_world_nothing_to_show).visibility = View.GONE
+            }
+            changeDataSet(filterList)
+        }
         return false
     }
 }

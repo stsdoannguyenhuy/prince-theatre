@@ -60,15 +60,15 @@ class DataSource() {
 
 class NetWorkErrorInterceptor : Interceptor {
     private var count = 3
-    override fun intercept(it: Interceptor.Chain): Response {
-        val request = it.request()
-        var response = it.proceed(request)
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val request = chain.request()
+        var response = chain.proceed(request)
         LogUtil.i("COUNT: $count")
         while (!response.isSuccessful && count > 0) {
             count--
             LogUtil.e("ERROR occur: {${response.code}} START RETRY")
             response.close()
-            response = it.call().clone().execute()
+            response = chain.call().clone().execute()
         }
         return response
 

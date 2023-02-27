@@ -48,3 +48,5 @@ Call multiple times to [backend api](https://challenge.lexicondigital.com.au/api
 ### Unit test `src/test` normal unit test that do not involve android framework
 - [Test Report & Coverage](./documentation/test-report.html)
 - I don't write unit test under package `com.interview.princethreatre.ui` and generated-code by `dagger`
+### Further testing process
+- Performance, Crash, User Experience, Usability based on requirement
