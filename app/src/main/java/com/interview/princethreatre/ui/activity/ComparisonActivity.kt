@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.interview.princethreatre.R
 import com.interview.princethreatre.base.BaseActivity
 import com.interview.princethreatre.data.FilmDetail
-import com.interview.princethreatre.ui.recyler.ListFilmAdapter
 import com.interview.princethreatre.service.FilmService
+import com.interview.princethreatre.ui.recyler.ListFilmAdapter
 import com.interview.princethreatre.util.LogUtil
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -47,20 +47,16 @@ class ComparisonActivity : BaseActivity() {
 
     @SuppressLint("CheckResult")
     private fun initialize() {
+        showLoading()
         filmService.getFilmWorldFilms()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                filmService.sortByPrice(it.movies)
-                filmWorldAdapter.changeDataSet(it.movies)
-                searchViewListener.originalFilmWorldList = it.movies
-            }, {
-                showError(it.message)
-            }, {
-                //todo what should I do ?
-            })
-        filmService.getCinemaWorldFilms()
-            .subscribeOn(Schedulers.io())
+            .flatMap {
+                this@ComparisonActivity.runOnUiThread {
+                    filmService.sortByPrice(it.movies)
+                    filmWorldAdapter.changeDataSet(it.movies)
+                    searchViewListener.originalFilmWorldList = it.movies
+                }
+                return@flatMap filmService.getCinemaWorldFilms()
+            }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 filmService.sortByPrice(it.movies)
@@ -69,7 +65,8 @@ class ComparisonActivity : BaseActivity() {
             }, {
                 showError(it.message)
             }, {
-                //todo what should I do ?
+                LogUtil.d("COMPLETED")
+                hideLoading()
             })
     }
 }
